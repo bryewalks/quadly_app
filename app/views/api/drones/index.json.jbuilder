@@ -1,0 +1,1 @@
+json.array! @drones, partial: 'drone', as: :drone

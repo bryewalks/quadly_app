@@ -10,16 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_223218) do
+ActiveRecord::Schema.define(version: 2019_03_11_164409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drones", force: :cascade do |t|
+    t.string "name"
+    t.text "notes"
+    t.boolean "favorite", default: false
+    t.integer "status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "location_reviews", force: :cascade do |t|
+    t.text "summary"
+    t.text "warning"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "latitude"
+    t.integer "longitude"
+    t.integer "flight_zone_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_locations", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.boolean "good_to_fly"
+    t.integer "wind_speed"
+    t.integer "temperature"
+    t.integer "visibility_miles"
+    t.integer "max_gust_speed"
+    t.integer "chance_of_precipitation"
+    t.integer "cloud_cover"
+    t.integer "wind_direction"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

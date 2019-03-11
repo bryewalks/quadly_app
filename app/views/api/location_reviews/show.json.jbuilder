@@ -1,0 +1,1 @@
+json.partial! @location_review, partial: 'location_review', as: :location_review
