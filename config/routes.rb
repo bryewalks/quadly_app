@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     patch '/drones/:id' => 'drones#update'
     delete '/drones/:id' => 'drones#destroy'
 
+    get '/weathers' => 'weathers#index'
+    post '/weathers' => 'weathers#create'
+    get '/weathers/:id' => 'weathers#show'
+    patch '/weathers/:id' => 'weathers#update'
+    delete '/weathers/:id' => 'weathers#destroy'
+
     get '/locations' => 'locations#index'
     post '/locations' => 'locations#create'
     get '/locations/:id' => 'locations#show'

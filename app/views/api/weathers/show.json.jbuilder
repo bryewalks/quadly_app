@@ -1,0 +1,1 @@
+json.partial! @weather, partial: 'weather', as: :weather
