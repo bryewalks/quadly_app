@@ -1,0 +1,1 @@
+json.array! @user_locations, partial: 'user_location', as: :user_location
