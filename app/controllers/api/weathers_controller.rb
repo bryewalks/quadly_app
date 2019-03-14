@@ -8,7 +8,7 @@ class Api::WeathersController < ApplicationController
 
   def create
     @weather = Weather.new(
-                          good_to_fly: params[:good_to_fly],
+                          # good_to_fly: params[:good_to_fly],
                           wind_speed: params[:wind_speed],
                           temperature: params[:temperature],
                           visibility_miles: params[:visibility_miles],

@@ -8,7 +8,7 @@ class Weather < ApplicationRecord
   end
 
   def check_wind
-    self.wind_speed < 20
+    self.wind_speed <= 20
   end
 
   def check_temperature
@@ -20,19 +20,24 @@ class Weather < ApplicationRecord
   end
 
   def check_gust
-    self.max_gust_speed < 20
+    self.max_gust_speed <= 20
   end
 
   def check_precipitation
-    self.chance_of_precipitation < 40
+    self.chance_of_precipitation <= 40
   end
 
   def check_clouds
-    self.cloud_cover < 75
+    self.cloud_cover <= 75
   end
 
   def check_conditions
-    true if check_wind && check_temperature && check_visibility && check_gust && check_precipitation && check_clouds
+    check_wind && 
+    check_temperature && 
+    check_visibility && 
+    check_gust && 
+    check_precipitation && 
+    check_clouds
   end
 
   def set_good_to_fly

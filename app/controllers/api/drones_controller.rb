@@ -32,21 +32,18 @@ class Api::DronesController < ApplicationController
 
   def update
     @drone = Drone.find(params[:id])
-
-    if @drone.user_id == current_user.id
-
+    
       @drone.name = params[:name] || @drone.name
       @drone.notes = params[:notes] || @drone.notes
       @drone.favorite = params[:favorite] || @drone.favorite
       @drone.status = params[:status] || @drone.status
 
-      if @drone.save
-        render 'show.json.jbuilder'
-      else
-        render json: {errors: @drone.errors.full_messages},status: :unprocessable_entity
-      end
-    else
+    if @drone.user_id == current_user.id && @drone.save
+      render 'show.json.jbuilder'
+    elsif @drone.user_id != current_user.id
       render json: {}, status: :unauthorized
+    else
+      render json: {errors: @drone.errors.full_messages},status: :unprocessable_entity
     end
   end
 
