@@ -11,11 +11,12 @@ class Api::LocationReviewsController < ApplicationController
                                           rating: params[:rating],
                                           summary: params[:summary],
                                           warning: params[:warning],
-                                          location_id: params[:location_id],
-                                          user_id: current_user.id
+                                          user_location_id: params[:user_location_id],
                                           )
-    if @location_review.save
+    if @location_review.user_location.status == "visited" && @location_review.save
       render 'show.json.jbuilder'
+    elsif @location_review.user_location.status != "visited" 
+      render json: {message: "Location Must Be Marked As Visited"},status: :unauthorized
     else
       render json: {errors: @location_review.errors.full_messages},status: :unprocessable_entity
     end
@@ -28,19 +29,17 @@ class Api::LocationReviewsController < ApplicationController
 
   def update
     @location_review = LocationReview.find(params[:id])
-    if location_review.user_id == current_user.id
-      @location_review.rating = params[:rating] || @location_review.rating
-      @location_review.summary = params[:summary] || @location_review.summary
-      @location_review.warning = params[:warning] || @location_review.warning
-      @location_review.status = params[:location_id] || @location_review.location_id
 
-      if @location_review.save
-        render 'show.json.jbuilder'
-      else
-        render json: {errors: @location_review.errors.full_messages},status: :unprocessable_entity
-      end
-    else
+    @location_review.rating = params[:rating] || @location_review.rating
+    @location_review.summary = params[:summary] || @location_review.summary
+    @location_review.warning = params[:warning] || @location_review.warning
+
+    if @location_review.user.id == current_user.id && @location_review.save
+      render 'show.json.jbuilder'
+    elsif @location_review.user.id != current_user.id
       render json: {}, status: :unauthorized
+    else
+      render json: {errors: @location_review.errors.full_messages},status: :unprocessable_entity
     end
   end
 

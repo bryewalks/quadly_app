@@ -1,3 +1,4 @@
+json.id weather.id
 json.good_to_fly weather.good_to_fly
 json.wind_speed weather.wind_speed
 json.temperature  weather.temperature

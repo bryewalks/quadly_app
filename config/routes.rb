@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     get '/user_locations' => 'user_locations#index'
     post '/user_locations' => 'user_locations#create'
-    delete '/user_locations' => 'user_locations#destroy'
+    delete '/user_locations/:id' => 'user_locations#destroy'
 
     
     get '/drones' => 'drones#index'
