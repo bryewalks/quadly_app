@@ -7,14 +7,17 @@ class Api::WeathersController < ApplicationController
   end
 
   def create
+    search_lat = params[:search_lat]
+    search_lng = params[:search_lng]
+    response = HTTP.get("https://api.darksky.net/forecast/#{ ENV['API_KEY'] }/#{ search_lat },#{ search_lng }")
+    response = response.parse['currently']
     @weather = Weather.new(
-                          # good_to_fly: params[:good_to_fly],
-                          wind_speed: params[:wind_speed],
-                          temperature: params[:temperature],
-                          visibility_miles: params[:visibility_miles],
-                          max_gust_speed: params[:max_gust_speed],
-                          chance_of_precipitation: params[:chance_of_precipitation],
-                          cloud_cover: params[:cloud_cover],
+                          wind_speed: response['windSpeed'],
+                          temperature: response['temperature'],
+                          visibility_miles: response['visibility'],
+                          max_gust_speed: response['windGust'],
+                          chance_of_precipitation: response['precipProbability'],
+                          cloud_cover: response['cloudCover'],
                           wind_direction: params[:wind_direction],
                           location_id: params[:location_id]
                           )
@@ -56,3 +59,21 @@ class Api::WeathersController < ApplicationController
     render json: {message: "Successfully Removed Weather"}
   end
 end
+
+
+# @weather = Weather.new(
+#                       # good_to_fly: params[:good_to_fly],
+#                       wind_speed: params[:wind_speed],
+#                       temperature: params[:temperature],
+#                       visibility_miles: params[:visibility_miles],
+#                       max_gust_speed: params[:max_gust_speed],
+#                       chance_of_precipitation: params[:chance_of_precipitation],
+#                       cloud_cover: params[:cloud_cover],
+#                       wind_direction: params[:wind_direction],
+#                       location_id: params[:location_id]
+#                       )
+# if @weather.save
+#   render 'show.json.jbuilder'
+# else
+#   render json: {errors: @weather.errors.full_messages},status: :unprocessable_entity
+# end
