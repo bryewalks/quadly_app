@@ -18,7 +18,7 @@ class Api::WeathersController < ApplicationController
                           max_gust_speed: response['windGust'],
                           chance_of_precipitation: response['precipProbability'],
                           cloud_cover: response['cloudCover'],
-                          wind_direction: params[:wind_direction],
+                          # wind_direction: params[:wind_direction],
                           location_id: params[:location_id]
                           )
     if @weather.save
