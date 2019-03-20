@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     patch '/weathers/:id' => 'weathers#update'
     delete '/weathers/:id' => 'weathers#destroy'
 
+    get '/airports' => 'locations#airportindex'
     get '/locations' => 'locations#index'
     post '/locations' => 'locations#create'
     get '/locations/:id' => 'locations#show'

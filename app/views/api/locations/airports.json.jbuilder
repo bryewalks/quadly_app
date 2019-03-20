@@ -1,0 +1,1 @@
+json.array! @airports, partial: 'airport', as: :airport

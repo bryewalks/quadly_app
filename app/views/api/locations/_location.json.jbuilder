@@ -2,6 +2,7 @@ json.id location.id
 json.name location.name
 json.address location.address
 json.flight_zone_status location.flight_zone_status
+json.airport location.airport
 
 json.position do
   json.lat location.latitude

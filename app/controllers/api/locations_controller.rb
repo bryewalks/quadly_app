@@ -1,9 +1,19 @@
 class Api::LocationsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show]
+  before_action :authenticate_user, except: [:index, :show, :airportindex]
   before_action :authenticate_admin, only: [:destroy, :update]
 
   def index
-    @locations = Location.all
+    airport_option = params[:airport]
+    if airport_option
+      @airports = Location.where(airport: true)
+      render 'index.json.jbuilder'
+    end
+    @locations = Location.where(airport: false)
+    render 'index.json.jbuilder'
+  end
+
+  def airportindex
+    @locations = Location.where(airport: true)
     render 'index.json.jbuilder'
   end
 
@@ -15,7 +25,10 @@ class Api::LocationsController < ApplicationController
                       longitude: params[:longitude],
                       flight_zone_status: params[:flight_zone_status]
                       )
+
+    
     if @location.save
+      @location.determine_status
       render 'show.json.jbuilder'
     else
       render json: {errors: @location.errors.full_messages},status: :unprocessable_entity
