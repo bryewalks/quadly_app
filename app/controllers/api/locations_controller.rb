@@ -3,11 +3,6 @@ class Api::LocationsController < ApplicationController
   before_action :authenticate_admin, only: [:destroy, :update]
 
   def index
-    airport_option = params[:airport]
-    if airport_option
-      @airports = Location.where(airport: true)
-      render 'index.json.jbuilder'
-    end
     @locations = Location.where(airport: false)
     render 'index.json.jbuilder'
   end
