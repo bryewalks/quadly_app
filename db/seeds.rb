@@ -4,7 +4,7 @@ airports = JSON.parse(airport_file)
 airports_array = []
 
 airports.each do |airport|
-  if !airport["type"]["seaplane_base"] && !airport["type"]["closed"] && !airport["type"]["heliport"] && !airport["type"]["large_airport"] && airport["iso_country"]["US"]
+  if !airport["type"]["seaplane_base"] && !airport["type"]["closed"] && !airport["type"]["heliport"] && !airport["type"]["large_airport"] && !airport["type"]["medium_airport"] && airport["iso_country"]["US"] && airport["iso_region"]["US-IL"]
     airports_array << airport
     # @location = Location.create!(
     #                   name: airport["name"],

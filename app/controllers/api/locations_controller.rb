@@ -13,20 +13,30 @@ class Api::LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(
-                      name: params[:name],
-                      address: params[:address],
-                      latitude: params[:latitude],
-                      longitude: params[:longitude],
-                      flight_zone_status: params[:flight_zone_status]
-                      )
+    search_lat = params[:latitude]
+    search_lng = params[:longitude]
 
-    
-    if @location.save
+    if search_lat && search_lng
+      @location = Location.new(
+                            latitude: params[:latitude],
+                            longitude: params[:longitude]
+                             )
       @location.determine_status
       render 'show.json.jbuilder'
     else
-      render json: {errors: @location.errors.full_messages},status: :unprocessable_entity
+      @location = Location.new(
+                        name: params[:name],
+                        address: params[:address],
+                        )
+
+      
+      if @location.save
+        @location.determine_status
+        @location.save
+        render 'show.json.jbuilder'
+      else
+        render json: {errors: @location.errors.full_messages},status: :unprocessable_entity
+      end
     end
   end
 

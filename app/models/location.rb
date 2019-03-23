@@ -13,16 +13,15 @@ class Location < ApplicationRecord
   # after_validation :reverse_geocode
 
   def check_airports
-      self.nearbys(5).where(airport: true)
+      self.nearbys(5).where(airport: true).length > 0
   end
 
   def determine_status
-    if self.latitude && self.longitude && check_airports.length > 0
+    if self.latitude && self.longitude && check_airports
       self.flight_zone_status = "no_flight_zone"
     else
       self.flight_zone_status = "flight_zone"
     end
-    self.save
   end
 
 end
