@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_030701) do
     t.integer "flight_zone_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "airport", default: false
+    t.integer "airport", default: 0
   end
 
   create_table "user_locations", force: :cascade do |t|
