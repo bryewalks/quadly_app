@@ -14,11 +14,8 @@ class Api::WeathersController < ApplicationController
                           cloud_cover: response['cloudCover'],
                           location_id: params[:location_id]
                           )
-    if @weather.save
-      render 'show.json.jbuilder'
-    else
-      render json: {errors: @weather.errors.full_messages},status: :unprocessable_entity
-    end
+    render 'show.json.jbuilder'
+
   end
 
   def show

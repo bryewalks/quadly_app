@@ -3,12 +3,24 @@ class Api::LocationsController < ApplicationController
   before_action :authenticate_admin, only: [:destroy, :update]
 
   def index
-    @locations = Location.where(airport: false)
+    @locations = Location.where(airport: 0)
     render 'index.json.jbuilder'
   end
 
   def airportindex
-    @locations = Location.where(airport: true)
+    search_lat = params[:latitude]
+    search_lng = params[:longitude]
+    search_distance = params[:distance]
+    search_address = params[:address]
+
+    if search_lat && search_lng
+      @locations = Location.near([search_lat, search_lng], search_distance).where.not(airport: 0)
+    elsif search_address
+      @locations = Location.near(search_address, search_distance).where.not(airport: 0)
+    else
+      @locations = Location.where.not(airport: 0)
+    end
+
     render 'index.json.jbuilder'
   end
 
