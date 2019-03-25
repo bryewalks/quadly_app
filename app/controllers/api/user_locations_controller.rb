@@ -33,11 +33,7 @@ class Api::UserLocationsController < ApplicationController
 
   def destroy
     user_location = UserLocation.find(params[:id])
-    if user_location.user_id == current_user.id
-      user_location.destroy
-      render json: {message: "Successfully removed user location"}
-    else
-      render json: {}, status: :unauthorized
-    end
+    user_location.destroy
+    render json: {message: "Successfully removed user location"}
   end
 end
