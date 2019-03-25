@@ -1,5 +1,5 @@
 class Api::LocationsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show, :airportindex]
+  before_action :authenticate_user, except: [:index, :show, :airportindex, :create]
   before_action :authenticate_admin, only: [:destroy, :update]
 
   def index
@@ -25,13 +25,13 @@ class Api::LocationsController < ApplicationController
   end
 
   def create
-    search_lat = params[:latitude]
-    search_lng = params[:longitude]
+    search_lat = params[:search_lat]
+    search_lng = params[:search_lng]
 
     if search_lat && search_lng
       @location = Location.new(
-                            latitude: params[:latitude],
-                            longitude: params[:longitude]
+                            latitude: search_lat,
+                            longitude: search_lng
                              )
       @location.determine_status
       render 'show.json.jbuilder'
@@ -39,6 +39,8 @@ class Api::LocationsController < ApplicationController
       @location = Location.new(
                         name: params[:name],
                         address: params[:address],
+                        latitude: params[:latitude],
+                        longitude: params[:longitude]
                         )
 
       
