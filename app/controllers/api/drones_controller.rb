@@ -38,10 +38,8 @@ class Api::DronesController < ApplicationController
       @drone.favorite = params[:favorite] || @drone.favorite
       @drone.status = params[:status] || @drone.status
 
-    if @drone.user_id == current_user.id && @drone.save
+    if @drone.save
       render 'show.json.jbuilder'
-    elsif @drone.user_id != current_user.id
-      render json: {}, status: :unauthorized
     else
       render json: {errors: @drone.errors.full_messages},status: :unprocessable_entity
     end
@@ -50,11 +48,7 @@ class Api::DronesController < ApplicationController
   def destroy
     drone = Drone.find(params[:id])
 
-    if drone.user_id == current_user.id
-      drone.destroy
-      render json: {message: "Successfully Removed Drone"}
-    else
-      render json: {}, status: :unauthorized
-    end
+    drone.destroy
+    render json: {message: "Successfully Removed Drone"}
   end
 end
