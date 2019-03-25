@@ -14,7 +14,7 @@ class Api::WeathersController < ApplicationController
                           cloud_cover: response['cloudCover'],
                           location_id: params[:location_id]
                           )
-    render 'show.json.jbuilder'
+      render 'show.json.jbuilder'
 
   end
 
