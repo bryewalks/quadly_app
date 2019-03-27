@@ -7,7 +7,7 @@ class Api::LocationsController < ApplicationController
     render 'index.json.jbuilder'
   end
 
-  def airportindex
+  def airport_index
     search_lat = params[:latitude]
     search_lng = params[:longitude]
     search_distance = params[:distance]
