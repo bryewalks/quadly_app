@@ -44,7 +44,7 @@ class Api::LocationsController < ApplicationController
                         )
 
       
-      if @location.save
+      if current_user && @location.save
         @location.determine_status
         @location.save
         render 'show.json.jbuilder'
