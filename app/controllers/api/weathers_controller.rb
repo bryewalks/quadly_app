@@ -2,7 +2,7 @@ class Api::WeathersController < ApplicationController
   def create
     search_lat = params[:search_lat]
     search_lng = params[:search_lng]
-    response = HTTP.get("http://crossorigin.me/https://api.darksky.net/forecast/#{ ENV['API_KEY'] }/#{ search_lat },#{ search_lng }")
+    response = HTTP.get("https://api.darksky.net/forecast/#{ ENV['API_KEY'] }/#{ search_lat },#{ search_lng }")
     response = response.parse['currently']
     @weather = Weather.new(
                           wind_speed: response['windSpeed'],
