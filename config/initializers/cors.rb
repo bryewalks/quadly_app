@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:8080', 'example.com'
+    origins 'localhost:8080', 'https://quadly.herokuapp.com/'
 
     resource '*',
       headers: :any,

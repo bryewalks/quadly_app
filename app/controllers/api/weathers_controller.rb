@@ -1,5 +1,4 @@
 class Api::WeathersController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
   def create
     search_lat = params[:search_lat]
     search_lng = params[:search_lng]
