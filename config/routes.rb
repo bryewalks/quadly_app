@@ -35,6 +35,6 @@ Rails.application.routes.draw do
     patch '/location_reviews/:id' => 'location_reviews#update'
     delete '/location_reviews/:id' => 'location_reviews#destroy'
 
-    get "/*path" => proc { [200, {}, [ActionView::Base.new.render(file: 'public/index.html')]] }
   end
+    get "/*path" => proc { [200, {}, [ActionView::Base.new.render(file: 'public/index.html')]] }
 end
