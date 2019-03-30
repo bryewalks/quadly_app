@@ -1,0 +1,352 @@
+#map {
+  height: 500px;
+}
+
+
+.top-padding {
+  margin-top: 5000px;
+}
+.support-hero .topics .topic {
+  display: inline-block;
+  float: left;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+  border: 1px solid #f5f7f9;
+  border-radius: 14px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.index-alt-map {
+  position: relative;
+}
+.index-alt-map #map {
+  height: 580px;
+  width: 100%;
+}
+
+.map-form {
+  margin: 5px;
+}
+
+.index-alt-map .location {
+  background: #fff;
+  padding: 20px 20px;
+  max-width: 250px;
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  left: 10px;
+  border-radius: 3px;
+  box-shadow: 0 9px 30px 0 rgba(0, 0, 0, 0.09);
+}
+@media (max-width: 991px) {
+  .index-alt-map .location {
+    max-width: 260px;
+  }
+}
+.index-alt-map .location h5 {
+  margin-bottom: 20px;
+  color: #356c9d;
+}
+
+.show-reviews {
+  height: 410px;
+  background: url("../notebook.jpg") no-repeat 50% 20%;
+  background-size: cover;
+  background-position: center 10%;
+  text-align: center;
+  padding-top: 120px;
+}
+.show-reviews h2 {
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: .5px;
+}
+@media (max-width: 767px) {
+  .show-reviews h2 {
+    font-size: 27px;
+    line-height: 35px;
+  }
+}
+.show-reviews button {
+  background: #88bee0;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 20px 35px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.show-reviews button:hover {
+  background: #6690e4;
+}
+
+.index-photography-cta {
+  height: 410px;
+  background: url("../images/unsplash/aerial.jpg") no-repeat 50% 20%;
+  background-size: cover;
+  text-align: center;
+  padding-top: 120px;
+}
+.index-photography-cta h2 {
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: .5px;
+}
+@media (max-width: 767px) {
+  .index-photography-cta h2 {
+    font-size: 27px;
+    line-height: 35px;
+  }
+}
+.index-photography-cta button {
+  background: #88bee0;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 20px 35px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.index-photography-cta button:hover {
+  background: #6690e4;
+}
+
+.index-photography-home {
+  height: 410px;
+  /*background: url("../images/unsplash/aerial.jpg") no-repeat 50% 20%;*/
+  background-size: cover;
+  text-align: center;
+  padding-top: 120px;
+}
+.index-photography-home h2 {
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: .5px;
+}
+@media (max-width: 767px) {
+  .index-photography-home h2 {
+    font-size: 27px;
+    line-height: 35px;
+  }
+}
+.index-photography-home button {
+  background: #88bee0;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 20px 35px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.index-photography-home button:hover {
+  background: #6690e4;
+}
+
+.index-photography-drone {
+  height: 410px;
+  background: url("/user-drones.jpg") no-repeat 50% 20%;
+  background-size: cover;
+  text-align: center;
+  padding-top: 120px;
+}
+.index-photography-drone h2 {
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: .5px;
+}
+@media (max-width: 767px) {
+  .index-photography-drone h2 {
+    font-size: 27px;
+    line-height: 35px;
+  }
+}
+.index-photography-drone button {
+  background: #88bee0;
+  box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 20px 35px;
+  font-size: 13px;
+  border-radius: 3px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.index-photography-drone button:hover {
+  background: #6690e4;
+}
+.class-a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+.class-a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.btn-get-tickets {
+  border: 2px solid #7a37a2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 16px 30px;
+  border-radius: 60px;
+  color: #7a37a2;
+  display: inline-block;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.btn-get-tickets:hover {
+  background: #7a37a2;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .btn-get-tickets {
+    margin-bottom: 20px;
+  }
+}
+
+.new-topic {
+  background-color: #F5F7F9;
+}
+
+.table {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.table-content {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.account-page {
+  margin-top: 40px;
+}
+.account-page .breadcrumb {
+  background: none;
+  padding: 0;
+}
+.account-page .account-wrapper {
+  margin-top: 40px;
+}
+.account-page .nav-tabs li:not(.active) a:hover {
+  background: #fdfdfd;
+}
+@media (max-width: 767px) {
+  .account-page .nav-tabs a {
+    padding: 10px 12px;
+  }
+}
+.account-page .tab-content {
+  padding: 35px 10px;
+}
+@media (max-width: 767px) {
+  .account-page .tab-header h4 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .account-page .custom-select {
+    width: 150px;
+  }
+}
+.account-page table {
+  margin-top: 30px;
+}
+.account-page table td {
+  padding: 12px 8px !important;
+}
+
+.ecommerce-sign-up-form {
+  width: 440px;
+  margin: 40px auto;
+}
+@media (max-width: 767px) {
+  .ecommerce-sign-up-form {
+    width: auto;
+  }
+}
+.ecommerce-sign-up-form h1 {
+  font-size: 31px;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+.ecommerce-sign-up-form .form-action {
+  text-align: center;
+  margin-top: 35px;
+}
+.ecommerce-sign-up-form .form-action button {
+  width: 100%;
+  padding: 13px 23px;
+}
+.ecommerce-sign-up-form .checkbox {
+  margin-top: 20px;
+}
+.ecommerce-sign-up-form .form-bottom {
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+}
+.ecommerce-sign-up-form .form-bottom a {
+  margin-left: 5px;
+}
+.ecommerce-sign-up-form .form-bottom .btn-forgot-password {
+  display: block;
+  margin-bottom: 40px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
