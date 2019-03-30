@@ -1,5 +1,5 @@
 class Api::LocationsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show, :airportindex, :create]
+  before_action :authenticate_user, except: [:index, :show, :airport_index, :create]
   before_action :authenticate_admin, only: [:destroy, :update]
 
   def index
